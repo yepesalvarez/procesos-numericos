@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp">
+
+        <TextView
+            android:id="@+id/lbl_decimal_num"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Insert a decimal number:"
+            tools:layout_editor_absoluteX="98dp"
+            tools:layout_editor_absoluteY="177dp" />
+
+        <EditText
+            android:id="@+id/txt_decimal_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            tools:layout_editor_absoluteX="98dp"
+            tools:layout_editor_absoluteY="227dp" />
+
+        <TextView
+            android:id="@+id/lbl_binary_num"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Binary number:"
+            tools:layout_editor_absoluteX="106dp"
+            tools:layout_editor_absoluteY="328dp" />
+
+        <TextView
+            android:id="@+id/txt_binary_num"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            tools:layout_editor_absoluteX="106dp"
+            tools:layout_editor_absoluteY="387dp" />
+
+        <Button
+            android:id="@+id/btn_convert"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Convert"
+            tools:layout_editor_absoluteX="106dp"
+            tools:layout_editor_absoluteY="441dp" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
