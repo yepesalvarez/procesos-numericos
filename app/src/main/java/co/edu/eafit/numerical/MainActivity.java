@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import co.edu.eafit.numerical.Utils.NumberBaseConverter;
+import co.edu.eafit.numerical.utils.NumberBaseConverter;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,10 +23,11 @@ public class MainActivity extends AppCompatActivity {
         convert_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                String[] binaryNumber = NumberBaseConverter.base10toBinary(Double.parseDouble(decimal_number.getText().toString()),false);
-//                binary_number.setText(binaryNumber[0] + "." + binaryNumber[1] + " .. " + binaryNumber[2] + " .. " + binaryNumber[3]);
+                String[] binaryNumber = NumberBaseConverter.base10toBinary(Double.parseDouble(decimal_number.getText().toString()));
+                binary_number.setText(binaryNumber[0] + "." + binaryNumber[1] + " .. " + binaryNumber[2] + " .. " + binaryNumber[3]);
 
 //                binary_number.setText(String.valueOf(NumberBaseConverter.base2toBase10(Double.parseDouble(decimal_number.getText().toString()))));
+//                binary_number.setText(NumberBaseConverter.toFloatingPointNotation(Double.parseDouble(decimal_number.getText().toString())));
             }
         });
 

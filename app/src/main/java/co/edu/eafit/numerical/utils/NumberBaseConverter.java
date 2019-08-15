@@ -1,4 +1,4 @@
-package co.edu.eafit.numerical.Utils;
+package co.edu.eafit.numerical.utils;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -6,10 +6,12 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import co.edu.eafit.numerical.enums.ExponentSign;
+
 public class NumberBaseConverter {
 
     /* ================== base 10 number to base 2 ==================================================================*/
-    public static String[] base10toBinary(double decimalNumber, boolean showLogs){
+    public static String[] base10toBinary(double decimalNumber){
         int integerPart = (int) decimalNumber;
         double decimalPart = (BigDecimal.valueOf(decimalNumber).subtract(BigDecimal.valueOf(integerPart))).doubleValue();
         //Integer part conversion
@@ -79,5 +81,48 @@ public class NumberBaseConverter {
             }
         }
         return integerPartBase10 + decimalPartBase10;
+    }
+
+    /* ================== number to floating point notation base 10 =================================================*/
+    public static String[] toFloatingPointNotation(double number){
+        String result[] = new String[3];
+        int integerPart = (int) number;
+        double decimalPart = (BigDecimal.valueOf(number).subtract(BigDecimal.valueOf(integerPart))).doubleValue();
+        int integerPartSize = 0;
+        double integerPartFPN = 0;
+        if (integerPart != 0) {
+            integerPartSize = String.valueOf(integerPart).length();
+            integerPartFPN = integerPart / Math.pow(10, integerPartSize);
+            if(decimalPart != 0) {
+                decimalPart = BigDecimal.valueOf(decimalPart).divide(BigDecimal.valueOf(Math.pow(10, integerPartSize))).doubleValue();
+                result [0] = String.valueOf(BigDecimal.valueOf(integerPartFPN).add(BigDecimal.valueOf(decimalPart)));
+                result [1] = ExponentSign.POSITIVE_EXPONENT.getBitSign();
+                result [2] = String.valueOf(integerPartSize);
+            }else{
+                result [0] = String.valueOf(integerPartFPN);
+                result [1] = ExponentSign.POSITIVE_EXPONENT.getBitSign();
+                result [2] = String.valueOf(integerPartSize);
+            }
+        } else {
+            if (decimalPart == 0.0){
+                result [0] = String.valueOf(integerPart);
+                result [1] = ExponentSign.POSITIVE_EXPONENT.getBitSign();
+            }
+            int decimalPartSize = 0;
+            String decimalPartString = String.valueOf(decimalPart).substring(2);
+            int i = 0;
+            while (i < decimalPartString.length() && decimalPartString.charAt(i) == '0'){
+                i++;
+            }
+            decimalPart = BigDecimal.valueOf(decimalPart).multiply(BigDecimal.valueOf(Math.pow(10, i))).doubleValue();
+            if(i == 0){
+                result [0] = String.valueOf(decimalPart);
+                result [1] = ExponentSign.POSITIVE_EXPONENT.getBitSign();
+            }else
+                result [0] = String.valueOf(decimalPart);
+                result [1] = ExponentSign.NEGATIVE_EXPONENT.getBitSign();
+                result [2] = String.valueOf(i);
+        }
+        return result;
     }
 }
