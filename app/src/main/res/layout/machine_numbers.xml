@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/img_logo_app_numbers"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#ffffff"
+        android:backgroundTint="#ffffff"
+        app:srcCompat="@drawable/eafit_logo"
+        android:contentDescription="@string/eafit_university_logo"/>
+
+    <TextView
+        android:id="@+id/lbl_machine_nums"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:text="@string/machine_numbers_title"
+        android:textAlignment="center"
+        android:textColor="#044607"
+        android:textSize="18sp"
+        android:textStyle="bold|italic" />
+
+    <Button
+        android:id="@+id/btn_biggest_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:backgroundTint="#5FC765"
+        android:text="@string/biggest_number" />
+
+    <Button
+        android:id="@+id/btn_epsilon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="0dp"
+        android:backgroundTint="#8AC98D"
+        android:text="@string/epsilon" />
+
+    <Button
+        android:id="@+id/btn_smallest_positive"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="0dp"
+        android:backgroundTint="#509153"
+        android:text="@string/smallest_positive" />
+
+    <Button
+        android:id="@+id/btn_clean_numbers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="0dp"
+        android:backgroundTint="#60CA78"
+        android:text="@string/clean_machine_options"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/lbl_result_numbers"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="2dp"
+        android:text=""
+        android:textColor="#4CAF50"
+        android:textSize="18sp"
+        tools:ignore="LabelFor" />
+
+</LinearLayout>

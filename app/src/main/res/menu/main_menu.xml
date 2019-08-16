@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="co.edu.eafit.numerical.MainActivity">
+
+    <item android:id="@+id/itm_home"
+        android:icon="@drawable/home_icon"
+        android:title="@string/home"
+        app:showAsAction="always"/>
+    <item android:id="@+id/itm_setup_machine"
+        android:icon="@drawable/machine_icon"
+        android:title="@string/setup_machine"
+        app:showAsAction="always"/>
+    <item android:id="@+id/itm_machine_numbers"
+        android:icon="@drawable/machine_numbers_icon"
+        android:title="@string/machine_numbers"
+        app:showAsAction="always"/>
+    <item android:id="@+id/itm_math_operations"
+        android:icon="@drawable/math_operations_icon"
+        android:title="@string/math_operations"
+        app:showAsAction="always" />
+</menu>

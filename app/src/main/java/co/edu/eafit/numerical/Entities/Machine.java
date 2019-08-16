@@ -8,6 +8,7 @@ import co.edu.eafit.numerical.utils.NumberBaseConverter;
 
 public class Machine {
 
+    public static Machine machine;
     private final int machineBits = 32;
     private int[] exponentBits;
     private int[] mantissaBits;
@@ -156,6 +157,14 @@ public class Machine {
 
     public void setExponentSign(int[] exponentSign) {
         this.exponentSign = exponentSign;
+    }
+
+    public static Machine getMachine() {
+        return machine;
+    }
+
+    public static void setMachine(Machine machine) {
+        Machine.machine = machine;
     }
 
     public String getNumberOnMachine(){

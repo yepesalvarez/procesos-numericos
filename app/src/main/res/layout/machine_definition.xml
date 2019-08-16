@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/img_logo_app_machine"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#ffffff"
+        android:backgroundTint="#ffffff"
+        app:srcCompat="@drawable/eafit_logo"
+        android:contentDescription="@string/eafit_university_logo"/>
+
+    <TextView
+        android:id="@+id/lbl_machine_def"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:text="@string/setup_machine"
+        android:textAlignment="center"
+        android:textColor="#044607"
+        android:textSize="18sp"
+        android:textStyle="bold|italic" />
+
+    <TextView
+        android:id="@+id/lbl_machine_bits"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:text="@string/machine_bits"
+        android:textColor="#4CAF50"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/lbl_mantissa_bits"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:text="@string/mantissa_bits"
+        android:textColor="#8BC34A" />
+
+    <EditText
+        android:id="@+id/txt_mantissa_bits"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:ems="10"
+        android:importantForAutofill="no"
+        android:inputType="number"
+        tools:ignore="LabelFor" />
+
+    <TextView
+        android:id="@+id/lbl_exponent_bits"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:text="@string/exponent_bits_amount"
+        android:textColor="#8BC34A"
+        tools:ignore="LabelFor" />
+
+    <EditText
+        android:id="@+id/txt_exponent_bits"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:ems="10"
+        android:importantForAutofill="no"
+        android:inputType="number"
+        tools:ignore="LabelFor" />
+
+    <Button
+        android:id="@+id/btn_save_machine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:backgroundTint="#4CAF50"
+        android:text="@string/save"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btn_clean_machine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="0dp"
+        android:backgroundTint="#B8CECE"
+        android:text="@string/clean_machine_options"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/lbl_errors_machine"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="2dp"
+        android:text=""
+        android:textColor="#F44336"
+        tools:ignore="LabelFor" />
+
+</LinearLayout>
