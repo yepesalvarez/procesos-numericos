@@ -1,6 +1,7 @@
 package co.edu.eafit.numerical.Entities;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
@@ -8,18 +9,19 @@ import co.edu.eafit.numerical.utils.NumberBaseConverter;
 
 public class Machine {
 
+    public static int machineBits;
     public static Machine machine;
-    private final int machineBits = 32;
     private int[] exponentBits;
     private int[] mantissaBits;
     private int[] exponentSign;
     private int[] mantissaSign;
 
-    public Machine(int exponentBitsAmt, int mantissaBitsAmt) {
+    public Machine(int mantissaBitsAmt, int exponentBitsAmt) {
+        this.mantissaBits = new int[mantissaBitsAmt];
         this.exponentBits = new int[exponentBitsAmt];
-        this.mantissaBits = new int[exponentBitsAmt];
         this.exponentSign = new int[1];
         this.mantissaSign = new int[1];
+        machine = this;
     }
 
     public void addNumber(double number) {
@@ -123,10 +125,6 @@ public class Machine {
         exponentSign[0] = Integer.parseInt(numberFloatingPointResult[1]);
     }
 
-    public int getMachineBits() {
-        return machineBits;
-    }
-
     public int[] getMantissaSign() {
         return mantissaSign;
     }
@@ -167,6 +165,10 @@ public class Machine {
         Machine.machine = machine;
     }
 
+    public void setMachineBits(int machineBits) {
+        this.machineBits = machineBits;
+    }
+
     public String getNumberOnMachine(){
         return getMantissaSign()
                 + "0.1" //Machine's implicit bit
@@ -176,18 +178,21 @@ public class Machine {
     }
 
     public double getBiggestNumber(){
-        /* all mantissa's bits equal to 1 remembering to add the implicit bit (therefore we use
-         < mantissaBits.length instead of < mantissaBits.length - 1)*/
+        /* all mantissa's bits equal to 1 remembering to add the implicit bit at the end */
         int acumMantissa = 1;
         for (int i = 1; i < mantissaBits.length; i++){
             acumMantissa = acumMantissa + (int) Math.pow(10, i);
         }
+        double mantissaWithImplicitBit = BigDecimal.valueOf(acumMantissa)
+                .divide(BigDecimal.valueOf((int) Math.pow(10, mantissaBits.length + 1)))
+                .add(BigDecimal.valueOf(0.1))
+                .doubleValue();
         /* all exponent's bits equal to 1*/
         int acumExponent = 1;
-        for (int i = 1; i < exponentBits.length - 1; i++){
+        for (int i = 1; i < exponentBits.length; i++){
             acumExponent = acumExponent + (int) Math.pow(10, i);
         }
-        double mantissaBase10 = NumberBaseConverter.base2toBase10(acumMantissa);
+        double mantissaBase10 = NumberBaseConverter.base2toBase10(mantissaWithImplicitBit);
         double exponentBase10 = NumberBaseConverter.base2toBase10(acumExponent);
         return mantissaBase10 * Math.pow(2, exponentBase10);
     }
